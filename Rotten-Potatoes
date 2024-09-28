@@ -1,0 +1,401 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>  
+        <title>Rotten Potatoes</title>
+    </head>
+    <body>
+        
+    <div id="container">
+            <div id="heading">
+                 <div id="nav">
+                <button id="Login" type="button" onclick="">
+                Login
+                </button>
+                <button id="SignUp" type="button" onclick="">
+                    Sign Up
+                </button>
+        
+                </div>
+                <div>
+                <input id="Search1" type="dropdown" placeholder="Search for Restaurant">
+                </div>
+                <div>
+                    <select id="Search2" name="City" >
+                    <option value = "Select City">Select City</option>
+                    <option value = "281">Los Angeles</option>
+                    <option value = "280">New York City</option>
+                    <option value = "306">San Francisco</option>
+                    <option value = "291">Miami</option>
+                    <option value = "286">Portland</option>
+                    </select>
+                </div>
+                
+                <button id="button">Search</button>
+                <div id="logo"></div>
+            </div>
+            <div id="message" >
+        </div>
+         <div id="mapid"></div>
+        
+        
+          <div id="footer"> 
+                <div id="about">
+                    <h3>About Rotten Potatoes</h3>
+                        <a href="About.html">About Us</a>
+                        <br>
+                        <a href="#">Culture</a>
+                    <br>
+                        <a href="#">Blog</a>
+                    <br>
+                        <a href="#">Careers</a>
+                    <br>
+                        <a href="#">Contact</a>
+                </div>
+                <div id="for">
+                    <h3>For Rotten Potatoes</h3>
+                    <a href="#">Code of Conduct</a>
+                    <br>
+                    <a href="#">Community</a>
+                    <br>
+                    <a href="#">Verified Users</a>
+                    <br>
+                    <a href="#">Blogger Help</a>
+                    <br>
+                    <a href="#">Developers</a>
+                    <br>
+                    <a href="#">Mobile Apps</a>
+                </div>
+                <div id="follow">
+                    <h3>Follow</h3>
+                    <div id="social">
+                    <a id="fb" href="#" >Facebook</a>
+                        <br>
+                    <a id="twitter" href="#" title="Twitter">Twitter</a>
+                        <br>
+                    <a id="blog" href="#" title="Blog">Blog</a>
+                        <br>
+                    <a id="pinterest" href="#" title="Pinterest">Pinterest</a>
+                        <br>
+                    <a id="instagram" href="#" title="Instagram">Instagram</a>
+                        <br>
+                    <a id="ravelry" href="#" title="Ravelry">Ravelry</a>
+                        <br>
+                    <a id="rss" href="#" title="RSS">RSS</a>
+                </div>
+            </div>
+        </div>
+        
+         
+</div>
+      
+       
+                  
+        
+        
+        <style>
+            
+            #mapid { 
+                grid-area: map;
+                border: 1px solid;
+                width: 400px;
+                height: 300px;
+                place-self: center center;
+                
+            }
+            
+            body{
+                padding: 0px;
+                margin: 0px;
+                background-color: #f2d4bc; 
+            }
+        
+             #container{
+                
+                display: grid;
+                grid-template-columns: 100%;
+                grid-template-rows: 550px auto 300px 200px;
+                grid-template-areas: 
+                    "heading heading"
+                    "restaurants restaurants"
+                    "map map"
+                    "footer footer";
+                 grid-gap: 20px;
+                 padding: 0px;
+                background-color: #f2d4bc; 
+            }
+            
+      
+            
+            #nav{
+                grid-area: button;
+                margin-right: 5px;
+                
+                
+            
+            }
+            
+            #nav #Login{
+                cursor: pointer;
+                width: 80px;
+                height: 20px;
+                place-self: center end;
+            
+                
+            }
+            
+            #nav #SignUp{
+                cursor: pointer;
+                width: 80px;
+                height: 20px;
+                place-self: center end;
+                
+                
+            }
+            
+            #heading{
+                grid-area: heading;
+                margin-right: 5px;
+                background-image: url(https://i.guim.co.uk/img/media/763740b8e350cea9a3e28e262f29894d3e9da140/0_0_4200_2521/master/4200.jpg?width=700&quality=85&auto=format&fit=max&s=06057db14d24ea64a4e9302a96fc2187);
+                
+                /*https://i.guim.co.uk/img/media/763740b8e350cea9a3e28e262f29894d3e9da140/0_0_4200_2521/master/4200.jpg?width=700&quality=85&auto=format&fit=max&s=06057db14d24ea64a4e9302a96fc2187
+                
+                 https://images.all-free-download.com/images/graphiclarge/potato_background_funny_stylized_icon_repeating_decoration_6831965.jpg)
+                
+                https://images.all-free-download.com/images/graphiclarge/potato_background_funny_stylized_icon_repeating_decoration_6831965.jpg
+                
+                https://image.shutterstock.com/image-photo/closeup-fresh-raw-potatoes-background-260nw-222157708.jpg
+                */
+                background-size: cover; 
+                color: white; 
+                font-size: 40px; 
+                width: 100%;
+                display: grid;
+                grid-template-columns: 50% 50%;
+                grid-template-rows: 100px 200px 200px 20px;
+                grid-template-areas: 
+                    "button button"
+                    "logo logo"
+                    "search1 search2"
+                    "button2 button2";
+                
+            }
+            #heading #logo{
+                background-image: url(logo.png);
+                background-repeat: no-repeat;
+                grid-area: logo;
+                place-self: center center;
+                width: 340px;
+                height: 340px;
+            }
+            
+            #heading div {
+                display: grid;
+            }
+            
+            #heading div #Search1  {
+                grid-area: search1;
+                  padding: 10px;
+                 
+                  font-size: 17px;
+                  place-self: center start;
+                width: 300px;
+               
+             }
+            
+             #heading div #Search2 {
+                 border: 1px solid;
+                 grid-area: search2;
+                 padding: 10px;
+                  cursor: pointer;
+                  font-size: 17px;
+                  place-self: center center;
+                 width: 300px;
+                             
+             }
+            #button{
+                 display: grid;
+                grid-area: button2;
+                font-size: 20px;
+                place-self: center center;
+                cursor: pointer;
+                padding: 5px;
+            }
+ 
+                
+            }
+            #restaurants{
+                grid-area: restaurants;
+                border: 1px solid;
+                width: 100%;
+                
+            }
+            #footer{
+                grid-area: footer;
+                display: grid;
+              
+                background-color: #8b0000;
+                width: 100%;
+                grid-template-columns: 33% 33% 34%;
+                grid-template-areas: 
+                    "about for social"; 
+            }
+            
+            #footer #about{
+                grid-area: about;
+                text-align: center;
+            }
+            #about, #for, #follow, a{
+                text-decoration: none;
+                text-align: center;
+                color: white;
+            }
+            
+            #about a:hover{
+                color: blue;
+                text-decoration: underline;
+            } 
+            
+             #for a:hover{
+                color: blue;
+                text-decoration: underline;
+            } 
+            
+            #follow a:hover{
+                color: blue;
+                text-decoration: underline;
+            } 
+            
+            #footer #for{
+                grid-area: for;   
+                text-align: center;
+                
+                
+            }
+            
+            #footer #follow{
+                grid-area: social;
+         
+                text-align: center;
+            
+            }
+            
+            
+            .food{
+                text-align: center;
+                color: red;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            
+            .address{
+                text-align: center;
+            }
+            
+            @media screen and (max-width:550px){
+                body{
+                    display:grid;
+                    grid-template-columns: 100%;
+                    grid-template-rows:10% 5% auto 10%;
+                    grid-template-areas:
+                        "header header"
+                        "nav nav"
+                        "main main"
+                        "footer footer";
+                    grid-gap: 5px;
+                   
+                }
+            
+        
+            
+
+        </style>
+    
+        
+        <script>
+        
+            //Zomato API
+            var apiBase = "https://developers.zomato.com/api/v2.1/";
+            
+            var data;
+            
+            var info = document.getElementById("message");
+            var button = document.getElementById("button");
+            var input = document.getElementById("Search2");
+            
+            var search = document.getElementById("Search1");
+
+    
+            //Set up xhr
+            var xhr = new XMLHttpRequest();
+            
+            //Set the button listener
+            button.addEventListener("click",buttonPressed);
+            
+            function buttonPressed() {
+                //Tell it what to do when it's loaded
+                xhr.addEventListener("load",loadRest);
+                //Tell it the file to load
+                xhr.open("GET", apiBase + "search?entity_id=" + input.value +"&entity_type=city" + "&q=" + search.value + "&count=100" );
+                //Set key
+                xhr.setRequestHeader("user-key","7665b10b5ed66c8a86e1e815f0d215ee");
+                //GO!
+                xhr.send();
+                
+            }
+            
+        
+            //Parse and display data
+            function loadRest() {
+                
+                //Stick the info into data
+                data = JSON.parse(xhr.responseText);
+                
+                //Stick the PokÃŠmon name and ID into info
+                info.innerHTML = " Restaurants found: " + data.results_found;
+                for (var i=0; i<5; i++) {
+                    
+                    info.innerHTML +=  
+                        
+                    `<div class="food" >` + data.restaurants[i].restaurant.name + `</div>` + 
+                        
+                    '<div class= "address" >' +"Address: " + data.restaurants[i].restaurant.location.address + '<div>'+
+                    
+                     `<div class="address" >` + "Cost for two: " +data.restaurants[i].restaurant.average_cost_for_two + `</div>` + 
+                        
+                    `<div class="address" >` + "Cuisines: "  + data.restaurants[i].restaurant.cuisines + `</div>` + 
+                        
+                    `<div class="address" >` + "Currency: "  +
+                    data.restaurants[i].restaurant.currency + `</div>` + 
+                    
+                     `<div class="address" >` + "Rating: "  +
+                    data.restaurants[i].restaurant.user_rating.aggregate_rating + `</div>` +     
+                        
+                    `<img src="` + data.restaurants[i].restaurant.thumb + `" height="150">` + '<br>' +'<br/>';
+                    
+                }
+                
+                console.log("Loaded!");
+            }
+            
+            
+            var map = L.map('mapid').setView([0, 0], 1);
+            L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=wkrAcCHCF6cxHu4uTjNB', {
+              attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">© MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>'   
+            }).addTo(map);
+            
+            //Searchbar
+            L.Control.geocoder().addTo(map);
+            
+            
+            
+           </script>
+        
+            
+<body/>
+<html/>
