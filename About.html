@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta description="">
+		<meta keywords="">
+		<title>About Us</title>
+	</head>
+	<body>
+    
+        <div id="container">
+            <div id="nav" >Home</div>
+            
+            <div id="body">Rotten Potatoes is the most efficient and convenient restaurant finder for the biggest cities in the United States. Look up the name or location of any restaurant and with Rotten Potatoes find the number of restaurants, type of cuisine, address, rating, cost-of-two, and a picture of the food from the restaurant. </div>
+            
+            <div id="footer">
+            
+                <div id="about">
+                    <h3>About Rotten Potatoes</h3>
+                        <a href="About.html">About Us</a>
+                        <br>
+                        <a href="#">Culture</a>
+                    <br>
+                        <a href="#">Blog</a>
+                    <br>
+                        <a href="#">Careers</a>
+                    <br>
+                        <a href="#">Contact</a>
+                </div>
+                <div id="for">
+                    <h3>For Rotten Potatoes</h3>
+                    <a href="#">Code of Conduct</a>
+                    <br>
+                    <a href="#">Community</a>
+                    <br>
+                    <a href="#">Verified Users</a>
+                    <br>
+                    <a href="#">Blogger Help</a>
+                    <br>
+                    <a href="#">Developers</a>
+                    <br>
+                    <a href="#">Mobile Apps</a>
+                </div>
+                <div id="follow">
+                    <h3>Follow</h3>
+                    <div id="social">
+                    <a id="fb" href="#" >Facebook</a>
+                        <br>
+                    <a id="twitter" href="#" title="Twitter">Twitter</a>
+                        <br>
+                    <a id="blog" href="#" title="Blog">Blog</a>
+                        <br>
+                    <a id="pinterest" href="#" title="Pinterest">Pinterest</a>
+                        <br>
+                    <a id="instagram" href="#" title="Instagram">Instagram</a>
+                        <br>
+                    <a id="ravelry" href="#" title="Ravelry">Ravelry</a>
+                        <br>
+                    <a id="rss" href="#" title="RSS">RSS</a>
+                </div>
+            </div>
+        </div>
+        </div>            
+        
+        <style>
+            body{
+                margin: 0px;
+                padding: 0px;
+                background-color: #f2d4bc;
+                
+            }
+            
+            #container{
+                
+                display: grid;
+                grid-template-columns: 100%;
+                grid-template-rows: 100px 300px 200px;
+                grid-template-areas: 
+                    "heading heading"
+                    "restaurants restaurants"
+                    "footer footer";
+                 grid-gap: 20px;
+                 padding: 0px;
+                background-color: #f2d4bc; 
+                
+            }
+            
+            
+            #nav{
+                grid-area: heading;
+                display: grid;
+                height:190px;
+                width: 200px;
+                background-repeat: no-repeat;
+                 background-image: url(logo.png);
+                place-self: center center;
+                
+                
+            }
+            
+            #body{
+                grid-area: restaurants;
+                font-size: 20px;
+                height:160px;
+                width: 400px;
+                place-self: center center;
+                border: 1px black solid;
+                background-color: antiquewhite;
+                padding: 5px;
+                
+                
+                
+            }
+            
+             #footer{
+                grid-area: footer;
+                display: grid;
+                 background-color: #8b0000;
+                /*background-color: #D47F3A;*/
+                width: 100%;
+                grid-template-columns: 33% 33% 34%;
+                grid-template-areas: 
+                    "about for social"; 
+            }
+            
+            #footer #about{
+                grid-area: about;
+                text-align: center;
+            }
+            #about, #for, #follow, a{
+                text-decoration: none;
+                text-align: center;
+                color: white;
+            }
+            
+            #about a:hover{
+                color: blue;
+                text-decoration: underline;
+            } 
+            
+             #for a:hover{
+                color: blue;
+                text-decoration: underline;
+            } 
+            
+            #follow a:hover{
+                color: blue;
+                text-decoration: underline;
+            } 
+            
+            #footer #for{
+                grid-area: for;   
+                text-align: center;
+                
+                
+            }
+            
+            #footer #follow{
+                grid-area: social;
+         
+                text-align: center;
+            
+            }
+            
+     
+            
+            </style>
+		
+	</body>
+</html>
